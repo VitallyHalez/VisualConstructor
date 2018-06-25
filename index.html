@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="libs/materialize/css/materialize.css" media="screen,projection" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+</head>
+<body>
+    <div class="DOMList cyan">
+        <div class="itemsContainer cyan darken-4">
+            <br> <p class="itemText">Ball</p> <br>
+
+            <button class="crtP btn waves-effect waves-light orange">P</button>
+
+            <button class="crtB btn waves-effect waves-light blue">BTTN</button>
+
+        </div>
+        <div class="droppable corsina red ">
+            X
+        </div>
+    </div>
+    <div class="droppable constr cyan lighten-3" id="constr">
+
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
+	<script src="libs/materialize/js/materialize.js"></script> 
+	<script src="libs/materialize/js/init.js"></script>
+    
+    <!--Scripts for DragManagerCore-->
+    <script src="js/ElementManager.js"></script>
+    <script src="js/DragManager.js"></script>
+   
+   <script>
+        DragManager.onDragCancel = function(dragObject) {
+            dragObject.avatar.rollback();
+        };
+
+        DragManager.onDragEnd = function(dragObject, dropElem) {
+            if (dropElem.classList.contains("corsina"))
+                dragObject.elem.style.display = 'none';
+            //dropElem.classList.add('computer-smile');
+            setTimeout(function() {
+               // dropElem.classList.remove('computer-smile');
+            }, 200);
+        };
+    </script>
+</body>
+</html>
