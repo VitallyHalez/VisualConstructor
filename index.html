@@ -10,43 +10,83 @@
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
 </head>
 <body>
-    <div class="DOMList cyan">
-        <div class="itemsContainer cyan darken-4">
-            <br> <p class="itemText">Ball</p> <br>
-
-            <button class="crtP btn waves-effect waves-light orange">P</button>
-
-            <button class="crtB btn waves-effect waves-light blue">BTTN</button>
-
+    <div class="row">
+    
+        <div class="col s3 DOMList">
+            
+            <ul class="sidenav sidenav-fixed">     
+                <li class="logo">
+                    OS PageVisualisation
+                </li>
+                <li class="no-padding z-depth-1" style="margin-top: 3vh;">
+                    <ul class="collapsible collapsible-accordion">
+                        <li class="bold"><a class="collapsible-header orange waves-effect waves-light" tabindex="0">HTML elements</a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li class="center">
+                                        <button class="crtP btn large waves-effect waves-light red">A</button>
+                                    </li>
+                                    <li class="center">
+                                        <button class="crtB btn large waves-effect waves-light blue">BTTN</button>
+                                    </li>
+                                    <li class="center">
+                                        <button class="crtD btn large waves-effect waves-light green">Div</button>
+                                    </li>
+                                    <li class="center">
+                                        <button class="crtP btn large waves-effect waves-light orange">Image</button>
+                                    </li>
+                                    <li class="center">
+                                        <button class="crtP btn large waves-effect waves-light purple">P</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bold z-depth-1" style="margin-top: 3vh;">
+                    <a href="http://openskykiev.com.ua" class=" waves-effect waves-light purple lighten-4">
+                        Our site
+                    </a>
+                </li>
+            </ul>
         </div>
-        <div class="droppable corsina red ">
-            X
+
+        <div class="col s9">
+            <!-- Teal page content  -->
+            <div class="droppable constr card blue lighten-5" id="constr">
+
+            </div>
         </div>
-    </div>
-    <div class="droppable constr cyan lighten-3" id="constr">
 
     </div>
-
     
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script> 
 	<script src="libs/materialize/js/materialize.js"></script> 
 	<script src="libs/materialize/js/init.js"></script>
     
+    
     <!--Scripts for DragManagerCore-->
+    
     <script src="js/ElementManager.js"></script>
     <script src="js/DragManager.js"></script>
-   
-   <script>
+    <script src="js/ClickManager.js"></script>
+    <script>
+        $('.collapsible').collapsible();
+        $('.collapsible.expandable').collapsible({
+        accordion: false
+        });
+    </script>
+    <script>
         DragManager.onDragCancel = function(dragObject) {
             dragObject.avatar.rollback();
         };
-
+        
         DragManager.onDragEnd = function(dragObject, dropElem) {
             if (dropElem.classList.contains("corsina"))
-                dragObject.elem.style.display = 'none';
+            dragObject.elem.style.display = 'none';
             //dropElem.classList.add('computer-smile');
             setTimeout(function() {
-               // dropElem.classList.remove('computer-smile');
+                // dropElem.classList.remove('computer-smile');
             }, 200);
         };
     </script>

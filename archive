@@ -1,0 +1,18 @@
+<div style="height: 1000px;" class="card z-depth-5">
+                <div class="card-content">
+                    <div class="itemsContainer container">
+                        <p class="blue-text">html</p>
+    
+                        <button class="crtP btn waves-effect waves-light orange">P</button>
+    
+                        <button class="crtB btn waves-effect waves-light blue">BTTN</button>
+
+                        <button class="crtD btn waves-effect waves-light green">Div</button>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <div class="droppable corsina red  z-depth-3">
+                        X
+                    </div>
+                </div>
+            </div>

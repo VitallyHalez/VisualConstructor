@@ -1,6 +1,12 @@
 function createP(constr, element){
+    
     let newElement=document.createElement(element);
+    
     constr.appendChild(newElement);
+    
+    if(element == 'div') 
+        newElement.classList.add("deep-purple");
+    
     newElement.classList.add('draggable');
     newElement.textContent = "Example text";
 }
