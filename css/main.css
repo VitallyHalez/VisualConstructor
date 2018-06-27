@@ -1,34 +1,12 @@
-.ball{
-    min-width: 50px;
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    border-radius: 30px;
-}
-.DOMList{
-    min-width: 25%;
-    max-width: 25%;
-    min-height: 100%;  
-    position: relative;
+body{
+    background-color: #ededed;
 }
 .constr{
     min-width: 70%;
     min-height: 100vh;  
 }
-.itemsContainer{
-    border-radius: 15px;
-    padding: 20px;
-}
-.itemText{
-    text-align: center;
-    color: white;
-    font-size: 20px;
-}
 .corsina{
-    border-radius: 15px;
     color: white;
     font-size: 30px;
-    padding: 20px;
-
     text-align: center;
 }

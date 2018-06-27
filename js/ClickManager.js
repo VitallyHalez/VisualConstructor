@@ -1,40 +1,44 @@
-var editObject = {};
-
-function ShowContext(e){
-    let container = document.createElement('div');
-    let inp = document.createElement('input');
-    let cstrArea = document.querySelector('#constr');
-    
-    var moveX = e.pageX;
-	var moveY = e.pageY;
-
-    container.style.width = 300 + "px";
-    container.style.height = 600 + "px";
-    
-    container.style.left = moveX;
-    container.style.top = moveY;
-
-    container.classList.add('deep-purple');
-    container.classList.add('card');
-    container.classList.add('z-depth-5');
-
-    cstrArea.appendChild(container);
-    container.appendChild(inp);
-
-    return false;
-}
+let editObject = {};
+let counter = 0;
 
 function ondblClick(e){
     var elem = e.target;
-	
     editObject.elem = elem;
+
     elem.textContent = "Hello";
     console.log(elem + "lol");
 }
 
-function onContextMenu(e){
-    ShowContext(e);
+function onClick(e) {
+    if (e.which != 1) return;
+    
+    if(e.target.closest('.crtA')){
+        createElement(cstrArea, 'a')
+    }
+    if(e.target.closest('.crtB')){
+        createElement(cstrArea, 'button')
+    }
+    if(e.target.closest('.crtD')){
+        createElement(cstrArea, 'div')
+    }
+    if(e.target.closest('.crtP')){
+        createElement(cstrArea, 'p')
+    }
+    if(e.target.closest('.crtI')){
+        createElement(cstrArea, 'image')
+    }
+    if(e.target.closest('.close')){
+        contextMenu.style.visibility = "hidden";
+    }
+    else return;
 }
 
+function onContextMenu(e){
+    createContext(e);
+}
+
+window.oncontextmenu = function(){return false;}
+
+document.onclick = onClick;
 document.ondblclick = ondblClick;
 document.oncontextmenu = onContextMenu;

@@ -1,5 +1,6 @@
-function createP(constr, element){
-    
+let cstrArea = document.querySelector('#constr');
+
+function createElement(constr, element){   
     let newElement=document.createElement(element);
     
     constr.appendChild(newElement);
@@ -8,24 +9,34 @@ function createP(constr, element){
         newElement.classList.add("deep-purple");
     
     newElement.classList.add('draggable');
-    newElement.textContent = "Example text";
+    newElement.textContent = "Right click for change";
 }
 
-let cstrArea = document.querySelector('#constr');
+function createContext(e){
+    var elem = e.target
+    editObject.elem = elem;
 
-function onClick(e) {
-    if (e.which != 1) return;
- 
-    if(e.target.closest('.crtP')){
-        createP(cstrArea, 'p')
+    if(elem.parentElement != constr) return false;
+    
+    contextMenu.style.visibility = "visible"      // Hide
+    contextMenu.style.left = elem.downX + 'px';
+    contextMenu.style.top =  elem.downY + 'px';
+    
+    if(elem.id != 'constr')
+    textCont.value = elem.innerText;
+    textColor.value = elem.style.backgroundColor;
+    newClass.value = elem.classList;
+    
+    var elemPos = elem.getBoundingClientRect();
+    contextMenu.style.left = elemPos.left + 'px';
+    contextMenu.style.top =  elemPos.top + 'px';
+    
+    save.onclick = function(){
+        elem.textContent = textCont.value;
+        elem.style.backgroundColor = textColor.value;
+        if(newClass.value != "")  elem.classList.add(newClass.value);
+        contextMenu.style.visibility = "hidden" 
     }
-    if(e.target.closest('.crtB')){
-        createP(cstrArea, 'button')
-    }
-    if(e.target.closest('.crtD')){
-        createP(cstrArea, 'div')
-    }
-    else return;
+
+    return false;
 }
-
-document.onclick = onClick;

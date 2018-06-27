@@ -53,6 +53,8 @@ var DragManager = new function() {
 	function onMouseUp(e) {
 		if (dragObject.avatar) { // если перенос идет
 			finishDrag(e);
+			constr.appendChild(e.target);
+			console.log(e.target);
 		}
 		// перенос либо не начинался, либо завершился
 		// в любом случае очистим "состояние переноса" dragObject
@@ -112,7 +114,7 @@ var DragManager = new function() {
 		return elem.closest('.droppable');
 	}
   
-  document.onmousemove = onMouseMove;
+    document.onmousemove = onMouseMove;
 	document.onmouseup = onMouseUp; 
 	document.onmousedown = onMouseDown;
 	this.onDragEnd = function(dragObject, dropElem) {};
